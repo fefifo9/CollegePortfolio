@@ -1,28 +1,465 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sophie's Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sophie Chen | Student Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #17345c;
+    }
+
+    .nav-links a {
+      color: #374151;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #17345c, #2f6fa5);
+      color: white;
+      padding: 100px 24px;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      font-size: 26px;
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 18px;
+      color: #e5eef8;
+    }
+
+    .hero-photo {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: white;
+      color: #17345c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 24px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      color: #17345c;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      margin-bottom: 30px;
+    }
+
+    .about-card,
+    .entry-card,
+    .contact-card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .stat-card h3 {
+      font-size: 36px;
+      color: #2563eb;
+      margin-bottom: 5px;
+    }
+
+    .stat-card p {
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .entries {
+      display: grid;
+      gap: 22px;
+    }
+
+    .entry-card {
+      border-left: 5px solid #2563eb;
+    }
+
+    .entry-card h3 {
+      color: #17345c;
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    .entry-details {
+      color: #2563eb;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f1ff;
+      color: #17345c;
+      padding: 7px 12px;
+      margin: 4px 6px 0 0;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .contact-card a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #17345c;
+      color: white;
+      text-align: center;
+      padding: 28px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin: auto;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        margin: 0 8px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: inline-block;
+        margin: 5px 7px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>Sophie Chen</h1>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Sophie Chen</div>
 
-    <h2>College Portfolio</h2>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#academics">Academics</a>
+        <a href="#volunteer">Volunteer</a>
+        <a href="#activities">Activities</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <p>
-        Welcome to my portfolio website.
+  <header class="hero">
+    <div class="hero-content">
+      <div>
+        <h1>Sophie Chen</h1>
+        <h2>Student, Volunteer, and Future Healthcare Professional</h2>
+
+        <p>
+          Welcome to my student portfolio. This website highlights my
+          academic progress, community involvement, activities, projects,
+          accomplishments, and personal growth.
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        Add a professional photo here later
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">
+      A brief introduction to who I am and what I care about.
     </p>
 
-    <h3>Current GPA</h3>
-    <p>4.0</p>
+    <div class="about-card">
+      <p>
+        I am a motivated high school student with an interest in healthcare,
+        service, leadership, and learning. I enjoy helping others, taking on
+        new challenges, and becoming more involved in my community.
+      </p>
 
-    <h3>Volunteer Hours</h3>
-    <p>0 Hours</p>
+      <br>
 
-    <h3>Activities</h3>
-    <ul>
-        <li>Example Activity</li>
-    </ul>
+      <p>
+        My goal is to use this portfolio to keep track of my academic journey,
+        volunteer experiences, extracurricular activities, awards, and
+        projects as I prepare for college.
+      </p>
+    </div>
+  </section>
+
+  <section id="academics">
+    <h2 class="section-title">Academics</h2>
+    <p class="section-subtitle">
+      My current academic information and progress.
+    </p>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>4.0</h3>
+        <p>Current GPA</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>10th</h3>
+        <p>Grade Level</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>2029</h3>
+        <p>Graduation Year</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>0</h3>
+        <p>Advanced Courses</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="volunteer">
+    <h2 class="section-title">Volunteer Experience</h2>
+    <p class="section-subtitle">
+      Community service and organizations I have supported.
+    </p>
+
+    <div class="entries">
+      <div class="entry-card">
+        <h3>Volunteer Position</h3>
+        <p class="entry-details">
+          Organization Name | Date | Total Hours
+        </p>
+
+        <p>
+          Write a short description of what you did, who you helped, and what
+          you learned from the experience.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Community Service</span>
+          <span class="tag">Teamwork</span>
+        </div>
+      </div>
+
+      <div class="entry-card">
+        <h3>Service Project</h3>
+        <p class="entry-details">
+          Organization Name | Date | Total Hours
+        </p>
+
+        <p>
+          Add another volunteer experience here. You can create more cards
+          later by copying this section.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Leadership</span>
+          <span class="tag">Service</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2 class="section-title">Activities and Projects</h2>
+    <p class="section-subtitle">
+      Clubs, sports, personal projects, and other interests.
+    </p>
+
+    <div class="entries">
+      <div class="entry-card">
+        <h3>Club or Activity</h3>
+        <p class="entry-details">
+          Role | School Year
+        </p>
+
+        <p>
+          Describe your involvement, responsibilities, and anything you
+          accomplished.
+        </p>
+      </div>
+
+      <div class="entry-card">
+        <h3>Personal Project</h3>
+        <p class="entry-details">
+          Project Name | Date
+        </p>
+
+        <p>
+          Describe a website, research project, creative project, competition,
+          or other meaningful work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2 class="section-title">Awards and Accomplishments</h2>
+    <p class="section-subtitle">
+      Recognition, certificates, and important achievements.
+    </p>
+
+    <div class="entries">
+      <div class="entry-card">
+        <h3>Award or Certificate</h3>
+        <p class="entry-details">
+          Awarding Organization | Year
+        </p>
+
+        <p>
+          Explain what the award was for and why it was meaningful.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">
+      Professional contact information.
+    </p>
+
+    <div class="contact-card">
+      <p>
+        Email:
+        <a href="mailto:yourprofessionalemail@example.com">
+          yourprofessionalemail@example.com
+        </a>
+      </p>
+
+      <p>
+        Portfolio:
+        <a href="https://fefifo9.github.io/CollegePortfolio/">
+          fefifo9.github.io/CollegePortfolio
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Sophie Chen. Student Portfolio.</p>
+  </footer>
 
 </body>
 </html>
